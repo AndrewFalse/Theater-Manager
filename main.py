@@ -1,9 +1,10 @@
 import sys
 import login_page
-from PyQt6 import QtWidgets
+import main_page
+from PySide6 import QtWidgets
 
 
-class LoginPage(QtWidgets.QMainWindow, login_page.Ui_Form):
+class LoginPage(QtWidgets.QMainWindow, main_page.Ui_MainWindow):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
