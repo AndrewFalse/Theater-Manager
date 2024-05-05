@@ -15,9 +15,10 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QGridLayout, QHBoxLayout, QLabel,
-    QLayout, QMainWindow, QPushButton, QSizePolicy,
-    QSpacerItem, QStackedWidget, QVBoxLayout, QWidget)
+from PySide6.QtWidgets import (QAbstractScrollArea, QApplication, QGridLayout, QHBoxLayout,
+    QHeaderView, QLabel, QLayout, QMainWindow,
+    QPushButton, QSizePolicy, QSpacerItem, QStackedWidget,
+    QTableView, QVBoxLayout, QWidget)
 import resources
 
 class Ui_MainWindow(object):
@@ -141,12 +142,6 @@ class Ui_MainWindow(object):
         self.verticalLayout_3.addWidget(self.btn6)
 
         self.btn6.raise_()
-        self.label.raise_()
-        self.btn1.raise_()
-        self.btn2.raise_()
-        self.btn3.raise_()
-        self.btn4.raise_()
-        self.btn5.raise_()
 
         self.gridLayout.addWidget(self.icon_widget, 0, 0, 1, 1)
 
@@ -303,9 +298,33 @@ class Ui_MainWindow(object):
 
         self.stackedWidget = QStackedWidget(self.widget)
         self.stackedWidget.setObjectName(u"stackedWidget")
+        self.stackedWidget.setEnabled(True)
         self.stackedWidget.setStyleSheet(u"background-color: rgb(255, 255, 255);")
         self.personal_page = QWidget()
         self.personal_page.setObjectName(u"personal_page")
+        self.gridLayout_2 = QGridLayout(self.personal_page)
+        self.gridLayout_2.setObjectName(u"gridLayout_2")
+        self.tableView = QTableView(self.personal_page)
+        self.tableView.setObjectName(u"tableView")
+        font2 = QFont()
+        font2.setFamilies([u"Right Grotesk Small"])
+        font2.setPointSize(10)
+        self.tableView.setFont(font2)
+        self.tableView.setSizeAdjustPolicy(QAbstractScrollArea.AdjustToContents)
+        self.tableView.setTabKeyNavigation(False)
+        self.tableView.setProperty("showDropIndicator", False)
+        self.tableView.setShowGrid(False)
+        self.tableView.setCornerButtonEnabled(False)
+        self.tableView.verticalHeader().setVisible(False)
+        self.tableView.verticalHeader().setHighlightSections(False)
+
+        self.gridLayout_2.addWidget(self.tableView, 0, 0, 1, 1)
+
+        self.label_4 = QLabel(self.personal_page)
+        self.label_4.setObjectName(u"label_4")
+
+        self.gridLayout_2.addWidget(self.label_4, 1, 0, 1, 1)
+
         self.stackedWidget.addWidget(self.personal_page)
         self.schedule_page = QWidget()
         self.schedule_page.setObjectName(u"schedule_page")
@@ -365,5 +384,6 @@ class Ui_MainWindow(object):
         self.button5.setText(QCoreApplication.translate("MainWindow", u"\u041a\u0430\u0441\u0441\u0430", None))
         self.button6.setText(QCoreApplication.translate("MainWindow", u"\u0412\u044b\u0439\u0442\u0438", None))
         self.menu.setText("")
+        self.label_4.setText(QCoreApplication.translate("MainWindow", u"\u041f\u0435\u0440\u0441\u043e\u043d\u0430\u043b", None))
     # retranslateUi
 
