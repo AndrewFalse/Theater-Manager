@@ -15,11 +15,11 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QAbstractScrollArea, QApplication, QGridLayout, QHBoxLayout,
-    QHeaderView, QLabel, QLayout, QMainWindow,
-    QPushButton, QSizePolicy, QSpacerItem, QStackedWidget,
-    QTableView, QVBoxLayout, QWidget)
-import resources
+from PySide6.QtWidgets import (QAbstractScrollArea, QApplication, QHBoxLayout, QHeaderView,
+    QLabel, QLayout, QMainWindow, QPushButton,
+    QSizePolicy, QSpacerItem, QStackedWidget, QTableView,
+    QVBoxLayout, QWidget)
+import resources.qrt_rc
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -29,11 +29,9 @@ class Ui_MainWindow(object):
         MainWindow.setStyleSheet(u"background-color: white;")
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
-        self.gridLayout = QGridLayout(self.centralwidget)
-        self.gridLayout.setObjectName(u"gridLayout")
-        self.gridLayout.setContentsMargins(0, 0, 0, 0)
         self.icon_widget = QWidget(self.centralwidget)
         self.icon_widget.setObjectName(u"icon_widget")
+        self.icon_widget.setGeometry(QRect(0, 0, 66, 597))
         self.icon_widget.setMaximumSize(QSize(70, 16777215))
         self.icon_widget.setStyleSheet(u"QWidget{\n"
 "	background-color: rgb(128, 0, 2);\n"
@@ -142,11 +140,9 @@ class Ui_MainWindow(object):
         self.verticalLayout_3.addWidget(self.btn6)
 
         self.btn6.raise_()
-
-        self.gridLayout.addWidget(self.icon_widget, 0, 0, 1, 1)
-
         self.label_widget = QWidget(self.centralwidget)
         self.label_widget.setObjectName(u"label_widget")
+        self.label_widget.setGeometry(QRect(76, 0, 180, 600))
         self.label_widget.setMaximumSize(QSize(180, 16777215))
         self.label_widget.setStyleSheet(u"QWidget{\n"
 "	background-color: rgb(128, 0, 2);\n"
@@ -265,11 +261,9 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_4.addWidget(self.button6)
 
-
-        self.gridLayout.addWidget(self.label_widget, 0, 1, 1, 1)
-
         self.main_widget = QWidget(self.centralwidget)
         self.main_widget.setObjectName(u"main_widget")
+        self.main_widget.setGeometry(QRect(266, 0, 521, 591))
         self.main_widget.setMinimumSize(QSize(400, 400))
         self.verticalLayout_5 = QVBoxLayout(self.main_widget)
         self.verticalLayout_5.setObjectName(u"verticalLayout_5")
@@ -302,10 +296,9 @@ class Ui_MainWindow(object):
         self.stackedWidget.setStyleSheet(u"background-color: rgb(255, 255, 255);")
         self.personal_page = QWidget()
         self.personal_page.setObjectName(u"personal_page")
-        self.gridLayout_2 = QGridLayout(self.personal_page)
-        self.gridLayout_2.setObjectName(u"gridLayout_2")
         self.tableView = QTableView(self.personal_page)
         self.tableView.setObjectName(u"tableView")
+        self.tableView.setGeometry(QRect(0, 40, 471, 471))
         font2 = QFont()
         font2.setFamilies([u"Right Grotesk Small"])
         font2.setPointSize(10)
@@ -317,13 +310,69 @@ class Ui_MainWindow(object):
         self.tableView.setCornerButtonEnabled(False)
         self.tableView.verticalHeader().setVisible(False)
         self.tableView.verticalHeader().setHighlightSections(False)
+        self.widget1 = QWidget(self.personal_page)
+        self.widget1.setObjectName(u"widget1")
+        self.widget1.setGeometry(QRect(10, 0, 444, 34))
+        self.horizontalLayout_4 = QHBoxLayout(self.widget1)
+        self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
+        self.horizontalLayout_4.setContentsMargins(0, 0, 0, 0)
+        self.pushButton = QPushButton(self.widget1)
+        self.pushButton.setObjectName(u"pushButton")
+        self.pushButton.setMinimumSize(QSize(100, 32))
+        font3 = QFont()
+        font3.setFamilies([u"Right Grotesk"])
+        self.pushButton.setFont(font3)
+        self.pushButton.setStyleSheet(u"QPushButton{\n"
+"background-color: white;\n"
+"border-style: solid;\n"
+"border-color: rgb(120, 0, 0);\n"
+"border-width: 2px;\n"
+"border-radius:10px;\n"
+"}")
 
-        self.gridLayout_2.addWidget(self.tableView, 0, 0, 1, 1)
+        self.horizontalLayout_4.addWidget(self.pushButton)
 
-        self.label_4 = QLabel(self.personal_page)
-        self.label_4.setObjectName(u"label_4")
+        self.pushButton_2 = QPushButton(self.widget1)
+        self.pushButton_2.setObjectName(u"pushButton_2")
+        self.pushButton_2.setMinimumSize(QSize(100, 32))
+        self.pushButton_2.setFont(font3)
+        self.pushButton_2.setStyleSheet(u"QPushButton{\n"
+"background-color: white;\n"
+"border-style: solid;\n"
+"border-color: rgb(120, 0, 0);\n"
+"border-width: 2px;\n"
+"border-radius:10px;\n"
+"}")
 
-        self.gridLayout_2.addWidget(self.label_4, 1, 0, 1, 1)
+        self.horizontalLayout_4.addWidget(self.pushButton_2)
+
+        self.pushButton_3 = QPushButton(self.widget1)
+        self.pushButton_3.setObjectName(u"pushButton_3")
+        self.pushButton_3.setMinimumSize(QSize(100, 32))
+        self.pushButton_3.setFont(font3)
+        self.pushButton_3.setStyleSheet(u"QPushButton{\n"
+"background-color: white;\n"
+"border-style: solid;\n"
+"border-color: rgb(120, 0, 0);\n"
+"border-width: 2px;\n"
+"border-radius:10px;\n"
+"}")
+
+        self.horizontalLayout_4.addWidget(self.pushButton_3)
+
+        self.pushButton_4 = QPushButton(self.widget1)
+        self.pushButton_4.setObjectName(u"pushButton_4")
+        self.pushButton_4.setMinimumSize(QSize(100, 32))
+        self.pushButton_4.setFont(font3)
+        self.pushButton_4.setStyleSheet(u"QPushButton{\n"
+"background-color: white;\n"
+"border-style: solid;\n"
+"border-color: rgb(120, 0, 0);\n"
+"border-width: 2px;\n"
+"border-radius:10px;\n"
+"}")
+
+        self.horizontalLayout_4.addWidget(self.pushButton_4)
 
         self.stackedWidget.addWidget(self.personal_page)
         self.schedule_page = QWidget()
@@ -343,9 +392,6 @@ class Ui_MainWindow(object):
 
 
         self.verticalLayout_5.addWidget(self.widget)
-
-
-        self.gridLayout.addWidget(self.main_widget, 0, 2, 1, 1)
 
         MainWindow.setCentralWidget(self.centralwidget)
 
@@ -384,6 +430,9 @@ class Ui_MainWindow(object):
         self.button5.setText(QCoreApplication.translate("MainWindow", u"\u041a\u0430\u0441\u0441\u0430", None))
         self.button6.setText(QCoreApplication.translate("MainWindow", u"\u0412\u044b\u0439\u0442\u0438", None))
         self.menu.setText("")
-        self.label_4.setText(QCoreApplication.translate("MainWindow", u"\u041f\u0435\u0440\u0441\u043e\u043d\u0430\u043b", None))
+        self.pushButton.setText(QCoreApplication.translate("MainWindow", u"\u0414\u043e\u0431\u0430\u0432\u0438\u0442\u044c", None))
+        self.pushButton_2.setText(QCoreApplication.translate("MainWindow", u"\u0420\u0435\u0434\u0430\u043a\u0442\u0438\u0440\u043e\u0432\u0430\u0442\u044c", None))
+        self.pushButton_3.setText(QCoreApplication.translate("MainWindow", u"\u0423\u0434\u0430\u043b\u0438\u0442\u044c", None))
+        self.pushButton_4.setText(QCoreApplication.translate("MainWindow", u"\u0414\u043e\u043f\u043e\u043b\u043d\u0438\u0442\u0435\u043b\u044c\u043d\u043e", None))
     # retranslateUi
 
