@@ -15,23 +15,25 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QAbstractScrollArea, QApplication, QHBoxLayout, QHeaderView,
-    QLabel, QLayout, QMainWindow, QPushButton,
-    QSizePolicy, QSpacerItem, QStackedWidget, QTableView,
-    QVBoxLayout, QWidget)
-import resources.qrt_rc
+from PySide6.QtWidgets import (QAbstractScrollArea, QApplication, QComboBox, QGridLayout,
+    QHBoxLayout, QHeaderView, QLabel, QLayout,
+    QMainWindow, QPushButton, QSizePolicy, QSpacerItem,
+    QStackedWidget, QTableView, QVBoxLayout, QWidget)
+import resources
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(800, 600)
+        MainWindow.resize(810, 655)
         MainWindow.setStyleSheet(u"background-color: white;")
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
+        self.horizontalLayout_5 = QHBoxLayout(self.centralwidget)
+        self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
+        self.horizontalLayout_5.setContentsMargins(0, 0, 0, 0)
         self.icon_widget = QWidget(self.centralwidget)
         self.icon_widget.setObjectName(u"icon_widget")
-        self.icon_widget.setGeometry(QRect(0, 0, 66, 597))
         self.icon_widget.setMaximumSize(QSize(70, 16777215))
         self.icon_widget.setStyleSheet(u"QWidget{\n"
 "	background-color: rgb(128, 0, 2);\n"
@@ -140,9 +142,11 @@ class Ui_MainWindow(object):
         self.verticalLayout_3.addWidget(self.btn6)
 
         self.btn6.raise_()
+
+        self.horizontalLayout_5.addWidget(self.icon_widget)
+
         self.label_widget = QWidget(self.centralwidget)
         self.label_widget.setObjectName(u"label_widget")
-        self.label_widget.setGeometry(QRect(76, 0, 180, 600))
         self.label_widget.setMaximumSize(QSize(180, 16777215))
         self.label_widget.setStyleSheet(u"QWidget{\n"
 "	background-color: rgb(128, 0, 2);\n"
@@ -261,9 +265,11 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_4.addWidget(self.button6)
 
+
+        self.horizontalLayout_5.addWidget(self.label_widget)
+
         self.main_widget = QWidget(self.centralwidget)
         self.main_widget.setObjectName(u"main_widget")
-        self.main_widget.setGeometry(QRect(266, 0, 521, 591))
         self.main_widget.setMinimumSize(QSize(400, 400))
         self.verticalLayout_5 = QVBoxLayout(self.main_widget)
         self.verticalLayout_5.setObjectName(u"verticalLayout_5")
@@ -296,9 +302,23 @@ class Ui_MainWindow(object):
         self.stackedWidget.setStyleSheet(u"background-color: rgb(255, 255, 255);")
         self.personal_page = QWidget()
         self.personal_page.setObjectName(u"personal_page")
+        self.gridLayout = QGridLayout(self.personal_page)
+        self.gridLayout.setObjectName(u"gridLayout")
+        self.gridLayout.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_7 = QVBoxLayout()
+        self.verticalLayout_7.setObjectName(u"verticalLayout_7")
+        self.comboBox = QComboBox(self.personal_page)
+        self.comboBox.addItem("")
+        self.comboBox.addItem("")
+        self.comboBox.addItem("")
+        self.comboBox.addItem("")
+        self.comboBox.setObjectName(u"comboBox")
+        self.comboBox.setMinimumSize(QSize(0, 20))
+
+        self.verticalLayout_7.addWidget(self.comboBox)
+
         self.tableView = QTableView(self.personal_page)
         self.tableView.setObjectName(u"tableView")
-        self.tableView.setGeometry(QRect(0, 40, 471, 471))
         font2 = QFont()
         font2.setFamilies([u"Right Grotesk Small"])
         font2.setPointSize(10)
@@ -310,13 +330,12 @@ class Ui_MainWindow(object):
         self.tableView.setCornerButtonEnabled(False)
         self.tableView.verticalHeader().setVisible(False)
         self.tableView.verticalHeader().setHighlightSections(False)
-        self.widget1 = QWidget(self.personal_page)
-        self.widget1.setObjectName(u"widget1")
-        self.widget1.setGeometry(QRect(10, 0, 444, 34))
-        self.horizontalLayout_4 = QHBoxLayout(self.widget1)
+
+        self.verticalLayout_7.addWidget(self.tableView)
+
+        self.horizontalLayout_4 = QHBoxLayout()
         self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
-        self.horizontalLayout_4.setContentsMargins(0, 0, 0, 0)
-        self.pushButton = QPushButton(self.widget1)
+        self.pushButton = QPushButton(self.personal_page)
         self.pushButton.setObjectName(u"pushButton")
         self.pushButton.setMinimumSize(QSize(100, 32))
         font3 = QFont()
@@ -332,35 +351,7 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_4.addWidget(self.pushButton)
 
-        self.pushButton_2 = QPushButton(self.widget1)
-        self.pushButton_2.setObjectName(u"pushButton_2")
-        self.pushButton_2.setMinimumSize(QSize(100, 32))
-        self.pushButton_2.setFont(font3)
-        self.pushButton_2.setStyleSheet(u"QPushButton{\n"
-"background-color: white;\n"
-"border-style: solid;\n"
-"border-color: rgb(120, 0, 0);\n"
-"border-width: 2px;\n"
-"border-radius:10px;\n"
-"}")
-
-        self.horizontalLayout_4.addWidget(self.pushButton_2)
-
-        self.pushButton_3 = QPushButton(self.widget1)
-        self.pushButton_3.setObjectName(u"pushButton_3")
-        self.pushButton_3.setMinimumSize(QSize(100, 32))
-        self.pushButton_3.setFont(font3)
-        self.pushButton_3.setStyleSheet(u"QPushButton{\n"
-"background-color: white;\n"
-"border-style: solid;\n"
-"border-color: rgb(120, 0, 0);\n"
-"border-width: 2px;\n"
-"border-radius:10px;\n"
-"}")
-
-        self.horizontalLayout_4.addWidget(self.pushButton_3)
-
-        self.pushButton_4 = QPushButton(self.widget1)
+        self.pushButton_4 = QPushButton(self.personal_page)
         self.pushButton_4.setObjectName(u"pushButton_4")
         self.pushButton_4.setMinimumSize(QSize(100, 32))
         self.pushButton_4.setFont(font3)
@@ -373,6 +364,12 @@ class Ui_MainWindow(object):
 "}")
 
         self.horizontalLayout_4.addWidget(self.pushButton_4)
+
+
+        self.verticalLayout_7.addLayout(self.horizontalLayout_4)
+
+
+        self.gridLayout.addLayout(self.verticalLayout_7, 0, 0, 1, 1)
 
         self.stackedWidget.addWidget(self.personal_page)
         self.schedule_page = QWidget()
@@ -392,6 +389,9 @@ class Ui_MainWindow(object):
 
 
         self.verticalLayout_5.addWidget(self.widget)
+
+
+        self.horizontalLayout_5.addWidget(self.main_widget)
 
         MainWindow.setCentralWidget(self.centralwidget)
 
@@ -430,9 +430,12 @@ class Ui_MainWindow(object):
         self.button5.setText(QCoreApplication.translate("MainWindow", u"\u041a\u0430\u0441\u0441\u0430", None))
         self.button6.setText(QCoreApplication.translate("MainWindow", u"\u0412\u044b\u0439\u0442\u0438", None))
         self.menu.setText("")
-        self.pushButton.setText(QCoreApplication.translate("MainWindow", u"\u0414\u043e\u0431\u0430\u0432\u0438\u0442\u044c", None))
-        self.pushButton_2.setText(QCoreApplication.translate("MainWindow", u"\u0420\u0435\u0434\u0430\u043a\u0442\u0438\u0440\u043e\u0432\u0430\u0442\u044c", None))
-        self.pushButton_3.setText(QCoreApplication.translate("MainWindow", u"\u0423\u0434\u0430\u043b\u0438\u0442\u044c", None))
+        self.comboBox.setItemText(0, QCoreApplication.translate("MainWindow", u"\u0410\u043a\u0442\u0435\u0440\u044b", None))
+        self.comboBox.setItemText(1, QCoreApplication.translate("MainWindow", u"\u041c\u0443\u0437\u044b\u043a\u0430\u043d\u0442\u044b", None))
+        self.comboBox.setItemText(2, QCoreApplication.translate("MainWindow", u"\u041f\u0440\u043e\u0434\u044e\u0441\u0435\u0440\u044b", None))
+        self.comboBox.setItemText(3, QCoreApplication.translate("MainWindow", u"\u041f\u0440\u043e\u0447\u0438\u0435 \u0440\u0430\u0431\u043e\u0442\u043d\u0438\u043a\u0438 \u0442\u0435\u0430\u0442\u0440\u0430", None))
+
+        self.pushButton.setText(QCoreApplication.translate("MainWindow", u"\u0420\u0435\u0434\u0430\u043a\u0442\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0411\u0414", None))
         self.pushButton_4.setText(QCoreApplication.translate("MainWindow", u"\u0414\u043e\u043f\u043e\u043b\u043d\u0438\u0442\u0435\u043b\u044c\u043d\u043e", None))
     # retranslateUi
 
