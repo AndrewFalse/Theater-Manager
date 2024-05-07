@@ -1,3 +1,13 @@
+# -*- coding: utf-8 -*-
+
+################################################################################
+## Form generated from reading UI file 'main_page.ui'
+##
+## Created by: Qt User Interface Compiler version 6.7.0
+##
+## WARNING! All changes made in this file will be lost when recompiling UI file!
+################################################################################
+
 from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
     QMetaObject, QObject, QPoint, QRect,
     QSize, QTime, QUrl, Qt)
@@ -137,6 +147,7 @@ class Ui_MainWindow(object):
 
         self.label_widget = QWidget(self.centralwidget)
         self.label_widget.setObjectName(u"label_widget")
+        self.label_widget.setMinimumSize(QSize(170, 0))
         self.label_widget.setMaximumSize(QSize(180, 16777215))
         self.label_widget.setStyleSheet(u"QWidget{\n"
 "	background-color: rgb(128, 0, 2);\n"
@@ -198,7 +209,7 @@ class Ui_MainWindow(object):
         self.button1 = QPushButton(self.label_widget)
         self.button1.setObjectName(u"button1")
         font1 = QFont()
-        font1.setFamilies([u"Right Grotesk Small"])
+        font1.setFamilies([u"Right Grotesk"])
         self.button1.setFont(font1)
         self.button1.setIcon(icon)
         self.button1.setCheckable(True)
@@ -292,6 +303,38 @@ class Ui_MainWindow(object):
         self.stackedWidget.setStyleSheet(u"background-color: rgb(255, 255, 255);")
         self.personal_page = QWidget()
         self.personal_page.setObjectName(u"personal_page")
+        self.personal_page.setStyleSheet(u"QPushButton{\n"
+"	height: 30px;\n"
+"	border :2px solid;\n"
+"	border-color: rgb(120, 0, 0);\n"
+"	border-radius: 10px;\n"
+"}\n"
+"\n"
+"QPushButton:pressed{\n"
+"	background-color: #F5FAFE;\n"
+"	border :2px solid;\n"
+"	border-color: rgb(102, 102, 102);\n"
+"	color: #1F95EF;\n"
+"	font-weight: bold;\n"
+"}\n"
+"\n"
+"QComboBox {\n"
+"    border: 2px solid;\n"
+"	border-color: rgb(120, 0, 0);\n"
+"    border-radius: 3px;\n"
+"    padding: 1px 18px 1px 3px;\n"
+"    min-width: 6em;\n"
+"	font: 57 13pt \"Right Grotesk Small\";\n"
+"}\n"
+"\n"
+"QTableView {\n"
+"    border: 1px solid;\n"
+"	border-color: rgb(120, 0, 0);\n"
+"    border-radius: 3px;\n"
+"    padding: 1px 18px 1px 3px;\n"
+"    min-width: 6em;\n"
+"	font: 57 13pt \"Right Grotesk Small\";\n"
+"}")
         self.gridLayout = QGridLayout(self.personal_page)
         self.gridLayout.setObjectName(u"gridLayout")
         self.gridLayout.setContentsMargins(0, 0, 0, 0)
@@ -305,7 +348,13 @@ class Ui_MainWindow(object):
         self.comboBox.addItem("")
         self.comboBox.addItem("")
         self.comboBox.setObjectName(u"comboBox")
-        self.comboBox.setMinimumSize(QSize(0, 30))
+        self.comboBox.setMinimumSize(QSize(115, 30))
+        font2 = QFont()
+        font2.setFamilies([u"Right Grotesk Small"])
+        font2.setPointSize(13)
+        font2.setBold(False)
+        font2.setItalic(False)
+        self.comboBox.setFont(font2)
 
         self.horizontalLayout_4.addWidget(self.comboBox)
 
@@ -313,44 +362,42 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_4.addItem(self.horizontalSpacer_4)
 
-        self.pushButton_3 = QPushButton(self.personal_page)
-        self.pushButton_3.setObjectName(u"pushButton_3")
-        self.pushButton_3.setMinimumSize(QSize(40, 30))
-        self.pushButton_3.setMaximumSize(QSize(40, 16777215))
-        self.pushButton_3.setStyleSheet(u"boder-radius: 12px;")
+        self.add_prs_btn = QPushButton(self.personal_page)
+        self.add_prs_btn.setObjectName(u"add_prs_btn")
+        self.add_prs_btn.setMinimumSize(QSize(60, 30))
+        self.add_prs_btn.setMaximumSize(QSize(40, 16777215))
+        self.add_prs_btn.setStyleSheet(u"")
         icon7 = QIcon()
         icon7.addFile(u":/icons/free-icon-font-user-3917559.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.pushButton_3.setIcon(icon7)
+        self.add_prs_btn.setIcon(icon7)
 
-        self.horizontalLayout_4.addWidget(self.pushButton_3)
+        self.horizontalLayout_4.addWidget(self.add_prs_btn)
 
-        self.pushButton = QPushButton(self.personal_page)
-        self.pushButton.setObjectName(u"pushButton")
-        self.pushButton.setMinimumSize(QSize(40, 30))
-        self.pushButton.setStyleSheet(u"boder-radius: 12px;")
+        self.prs_qr_btn = QPushButton(self.personal_page)
+        self.prs_qr_btn.setObjectName(u"prs_qr_btn")
+        self.prs_qr_btn.setMinimumSize(QSize(60, 30))
+        self.prs_qr_btn.setStyleSheet(u"")
         icon8 = QIcon()
         icon8.addFile(u":/icons/free-icon-font-document-3914193.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.pushButton.setIcon(icon8)
+        self.prs_qr_btn.setIcon(icon8)
 
-        self.horizontalLayout_4.addWidget(self.pushButton)
+        self.horizontalLayout_4.addWidget(self.prs_qr_btn)
 
-        self.pushButton_2 = QPushButton(self.personal_page)
-        self.pushButton_2.setObjectName(u"pushButton_2")
-        self.pushButton_2.setMinimumSize(QSize(40, 30))
+        self.prs_set_btn = QPushButton(self.personal_page)
+        self.prs_set_btn.setObjectName(u"prs_set_btn")
+        self.prs_set_btn.setMinimumSize(QSize(60, 30))
+        self.prs_set_btn.setStyleSheet(u"")
         icon9 = QIcon()
         icon9.addFile(u":/icons/setting.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.pushButton_2.setIcon(icon9)
+        self.prs_set_btn.setIcon(icon9)
 
-        self.horizontalLayout_4.addWidget(self.pushButton_2)
+        self.horizontalLayout_4.addWidget(self.prs_set_btn)
 
 
         self.verticalLayout_7.addLayout(self.horizontalLayout_4)
 
         self.tableView = QTableView(self.personal_page)
         self.tableView.setObjectName(u"tableView")
-        font2 = QFont()
-        font2.setFamilies([u"Right Grotesk Small"])
-        font2.setPointSize(10)
         self.tableView.setFont(font2)
         self.tableView.setSizeAdjustPolicy(QAbstractScrollArea.AdjustToContents)
         self.tableView.setTabKeyNavigation(False)
@@ -368,6 +415,38 @@ class Ui_MainWindow(object):
         self.stackedWidget.addWidget(self.personal_page)
         self.schedule_page = QWidget()
         self.schedule_page.setObjectName(u"schedule_page")
+        self.schedule_page.setStyleSheet(u"QPushButton{\n"
+"	height: 30px;\n"
+"	border :2px solid;\n"
+"	border-color: rgb(120, 0, 0);\n"
+"	border-radius: 10px;\n"
+"}\n"
+"\n"
+"QPushButton:pressed{\n"
+"	background-color: #F5FAFE;\n"
+"	border :2px solid;\n"
+"	border-color: rgb(102, 102, 102);\n"
+"	color: #1F95EF;\n"
+"	font-weight: bold;\n"
+"}\n"
+"\n"
+"QComboBox {\n"
+"    border: 2px solid;\n"
+"	border-color: rgb(120, 0, 0);\n"
+"    border-radius: 3px;\n"
+"    padding: 1px 18px 1px 3px;\n"
+"    min-width: 6em;\n"
+"	font: 57 13pt \"Right Grotesk Small\";\n"
+"}\n"
+"\n"
+"QTableView {\n"
+"    border: 1px solid;\n"
+"	border-color: rgb(120, 0, 0);\n"
+"    border-radius: 3px;\n"
+"    padding: 1px 18px 1px 3px;\n"
+"    min-width: 6em;\n"
+"	font: 57 13pt \"Right Grotesk Small\";\n"
+"}")
         self.gridLayout_3 = QGridLayout(self.schedule_page)
         self.gridLayout_3.setObjectName(u"gridLayout_3")
         self.gridLayout_3.setContentsMargins(0, 0, 0, 0)
@@ -381,7 +460,7 @@ class Ui_MainWindow(object):
 
         self.add_sch_btn = QPushButton(self.schedule_page)
         self.add_sch_btn.setObjectName(u"add_sch_btn")
-        self.add_sch_btn.setMinimumSize(QSize(40, 30))
+        self.add_sch_btn.setMinimumSize(QSize(60, 30))
         icon10 = QIcon()
         icon10.addFile(u":/icons/free-icon-font-clock-3917267.png", QSize(), QIcon.Normal, QIcon.Off)
         self.add_sch_btn.setIcon(icon10)
@@ -390,14 +469,14 @@ class Ui_MainWindow(object):
 
         self.sch_qr_btn = QPushButton(self.schedule_page)
         self.sch_qr_btn.setObjectName(u"sch_qr_btn")
-        self.sch_qr_btn.setMinimumSize(QSize(40, 30))
+        self.sch_qr_btn.setMinimumSize(QSize(60, 30))
         self.sch_qr_btn.setIcon(icon8)
 
         self.horizontalLayout_6.addWidget(self.sch_qr_btn)
 
         self.sch_set_btn = QPushButton(self.schedule_page)
         self.sch_set_btn.setObjectName(u"sch_set_btn")
-        self.sch_set_btn.setMinimumSize(QSize(40, 30))
+        self.sch_set_btn.setMinimumSize(QSize(60, 30))
         self.sch_set_btn.setIcon(icon9)
 
         self.horizontalLayout_6.addWidget(self.sch_set_btn)
@@ -416,6 +495,38 @@ class Ui_MainWindow(object):
         self.stackedWidget.addWidget(self.schedule_page)
         self.items_page = QWidget()
         self.items_page.setObjectName(u"items_page")
+        self.items_page.setStyleSheet(u"QPushButton{\n"
+"	height: 30px;\n"
+"	border :2px solid;\n"
+"	border-color: rgb(120, 0, 0);\n"
+"	border-radius: 10px;\n"
+"}\n"
+"\n"
+"QPushButton:pressed{\n"
+"	background-color: #F5FAFE;\n"
+"	border :2px solid;\n"
+"	border-color: rgb(102, 102, 102);\n"
+"	color: #1F95EF;\n"
+"	font-weight: bold;\n"
+"}\n"
+"\n"
+"QComboBox {\n"
+"    border: 2px solid;\n"
+"	border-color: rgb(120, 0, 0);\n"
+"    border-radius: 3px;\n"
+"    padding: 1px 18px 1px 3px;\n"
+"    min-width: 6em;\n"
+"	font: 57 13pt \"Right Grotesk Small\";\n"
+"}\n"
+"\n"
+"QTableView {\n"
+"    border: 1px solid;\n"
+"	border-color: rgb(120, 0, 0);\n"
+"    border-radius: 3px;\n"
+"    padding: 1px 18px 1px 3px;\n"
+"    min-width: 6em;\n"
+"	font: 57 13pt \"Right Grotesk Small\";\n"
+"}")
         self.gridLayout_4 = QGridLayout(self.items_page)
         self.gridLayout_4.setObjectName(u"gridLayout_4")
         self.gridLayout_4.setContentsMargins(0, 0, 0, 0)
@@ -429,7 +540,7 @@ class Ui_MainWindow(object):
 
         self.add_item_btn = QPushButton(self.items_page)
         self.add_item_btn.setObjectName(u"add_item_btn")
-        self.add_item_btn.setMinimumSize(QSize(40, 30))
+        self.add_item_btn.setMinimumSize(QSize(60, 30))
         icon11 = QIcon()
         icon11.addFile(u":/icons/free-icon-font-piggy-bank-7653246.png", QSize(), QIcon.Normal, QIcon.Off)
         self.add_item_btn.setIcon(icon11)
@@ -438,14 +549,14 @@ class Ui_MainWindow(object):
 
         self.item_qr_btn = QPushButton(self.items_page)
         self.item_qr_btn.setObjectName(u"item_qr_btn")
-        self.item_qr_btn.setMinimumSize(QSize(40, 30))
+        self.item_qr_btn.setMinimumSize(QSize(60, 30))
         self.item_qr_btn.setIcon(icon8)
 
         self.horizontalLayout_5.addWidget(self.item_qr_btn)
 
         self.item_set_btn = QPushButton(self.items_page)
         self.item_set_btn.setObjectName(u"item_set_btn")
-        self.item_set_btn.setMinimumSize(QSize(40, 30))
+        self.item_set_btn.setMinimumSize(QSize(60, 30))
         self.item_set_btn.setIcon(icon9)
 
         self.horizontalLayout_5.addWidget(self.item_set_btn)
@@ -464,6 +575,38 @@ class Ui_MainWindow(object):
         self.stackedWidget.addWidget(self.items_page)
         self.cash_page = QWidget()
         self.cash_page.setObjectName(u"cash_page")
+        self.cash_page.setStyleSheet(u"QPushButton{\n"
+"	height: 30px;\n"
+"	border :2px solid;\n"
+"	border-color: rgb(120, 0, 0);\n"
+"	border-radius: 10px;\n"
+"}\n"
+"\n"
+"QPushButton:pressed{\n"
+"	background-color: #F5FAFE;\n"
+"	border :2px solid;\n"
+"	border-color: rgb(102, 102, 102);\n"
+"	color: #1F95EF;\n"
+"	font-weight: bold;\n"
+"}\n"
+"\n"
+"QComboBox {\n"
+"    border: 2px solid;\n"
+"	border-color: rgb(120, 0, 0);\n"
+"    border-radius: 3px;\n"
+"    padding: 1px 18px 1px 3px;\n"
+"    min-width: 6em;\n"
+"	font: 57 13pt \"Right Grotesk Small\";\n"
+"}\n"
+"\n"
+"QTableView {\n"
+"    border: 1px solid;\n"
+"	border-color: rgb(120, 0, 0);\n"
+"    border-radius: 3px;\n"
+"    padding: 1px 18px 1px 3px;\n"
+"    min-width: 6em;\n"
+"	font: 57 13pt \"Right Grotesk Small\";\n"
+"}")
         self.gridLayout_5 = QGridLayout(self.cash_page)
         self.gridLayout_5.setObjectName(u"gridLayout_5")
         self.gridLayout_5.setContentsMargins(0, 0, 0, 0)
@@ -477,7 +620,7 @@ class Ui_MainWindow(object):
 
         self.add_tck_btn = QPushButton(self.cash_page)
         self.add_tck_btn.setObjectName(u"add_tck_btn")
-        self.add_tck_btn.setMinimumSize(QSize(40, 30))
+        self.add_tck_btn.setMinimumSize(QSize(60, 30))
         icon12 = QIcon()
         icon12.addFile(u":/icons/free-icon-font-ticket-3916614.png", QSize(), QIcon.Normal, QIcon.Off)
         self.add_tck_btn.setIcon(icon12)
@@ -486,14 +629,14 @@ class Ui_MainWindow(object):
 
         self.tck_qr_btn = QPushButton(self.cash_page)
         self.tck_qr_btn.setObjectName(u"tck_qr_btn")
-        self.tck_qr_btn.setMinimumSize(QSize(40, 30))
+        self.tck_qr_btn.setMinimumSize(QSize(60, 30))
         self.tck_qr_btn.setIcon(icon8)
 
         self.horizontalLayout_7.addWidget(self.tck_qr_btn)
 
         self.tck_set_btn = QPushButton(self.cash_page)
         self.tck_set_btn.setObjectName(u"tck_set_btn")
-        self.tck_set_btn.setMinimumSize(QSize(40, 30))
+        self.tck_set_btn.setMinimumSize(QSize(60, 30))
         self.tck_set_btn.setIcon(icon9)
 
         self.horizontalLayout_7.addWidget(self.tck_set_btn)
@@ -512,6 +655,38 @@ class Ui_MainWindow(object):
         self.stackedWidget.addWidget(self.cash_page)
         self.shows_page = QWidget()
         self.shows_page.setObjectName(u"shows_page")
+        self.shows_page.setStyleSheet(u"QPushButton{\n"
+"	height: 30px;\n"
+"	border :2px solid;\n"
+"	border-color: rgb(120, 0, 0);\n"
+"	border-radius: 10px;\n"
+"}\n"
+"\n"
+"QPushButton:pressed{\n"
+"	background-color: #F5FAFE;\n"
+"	border :2px solid;\n"
+"	border-color: rgb(102, 102, 102);\n"
+"	color: #1F95EF;\n"
+"	font-weight: bold;\n"
+"}\n"
+"\n"
+"QComboBox {\n"
+"    border: 2px solid;\n"
+"	border-color: rgb(120, 0, 0);\n"
+"    border-radius: 3px;\n"
+"    padding: 1px 18px 1px 3px;\n"
+"    min-width: 6em;\n"
+"	font: 57 13pt \"Right Grotesk Small\";\n"
+"}\n"
+"\n"
+"QTableView {\n"
+"    border: 1px solid;\n"
+"	border-color: rgb(120, 0, 0);\n"
+"    border-radius: 3px;\n"
+"    padding: 1px 18px 1px 3px;\n"
+"    min-width: 6em;\n"
+"	font: 57 13pt \"Right Grotesk Small\";\n"
+"}")
         self.gridLayout_6 = QGridLayout(self.shows_page)
         self.gridLayout_6.setObjectName(u"gridLayout_6")
         self.gridLayout_6.setContentsMargins(0, 0, 0, 0)
@@ -523,7 +698,7 @@ class Ui_MainWindow(object):
         self.show_cmbox.addItem("")
         self.show_cmbox.addItem("")
         self.show_cmbox.setObjectName(u"show_cmbox")
-        self.show_cmbox.setMinimumSize(QSize(200, 30))
+        self.show_cmbox.setMinimumSize(QSize(115, 30))
 
         self.horizontalLayout_8.addWidget(self.show_cmbox)
 
@@ -533,21 +708,21 @@ class Ui_MainWindow(object):
 
         self.add_role_btn = QPushButton(self.shows_page)
         self.add_role_btn.setObjectName(u"add_role_btn")
-        self.add_role_btn.setMinimumSize(QSize(40, 30))
+        self.add_role_btn.setMinimumSize(QSize(60, 30))
         self.add_role_btn.setIcon(icon7)
 
         self.horizontalLayout_8.addWidget(self.add_role_btn)
 
         self.show_qr_btn = QPushButton(self.shows_page)
         self.show_qr_btn.setObjectName(u"show_qr_btn")
-        self.show_qr_btn.setMinimumSize(QSize(40, 30))
+        self.show_qr_btn.setMinimumSize(QSize(60, 30))
         self.show_qr_btn.setIcon(icon8)
 
         self.horizontalLayout_8.addWidget(self.show_qr_btn)
 
         self.show_set_btn = QPushButton(self.shows_page)
         self.show_set_btn.setObjectName(u"show_set_btn")
-        self.show_set_btn.setMinimumSize(QSize(40, 30))
+        self.show_set_btn.setMinimumSize(QSize(60, 30))
         self.show_set_btn.setIcon(icon9)
 
         self.horizontalLayout_8.addWidget(self.show_set_btn)
@@ -589,7 +764,7 @@ class Ui_MainWindow(object):
         self.button4.toggled.connect(self.btn4.setChecked)
         self.button5.toggled.connect(self.btn5.setChecked)
 
-        self.stackedWidget.setCurrentIndex(4)
+        self.stackedWidget.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -618,9 +793,9 @@ class Ui_MainWindow(object):
         self.comboBox.setItemText(2, QCoreApplication.translate("MainWindow", u"\u041f\u0440\u043e\u0434\u044e\u0441\u0435\u0440\u044b", None))
         self.comboBox.setItemText(3, QCoreApplication.translate("MainWindow", u"\u041f\u0440\u043e\u0447\u0438\u0435 \u0440\u0430\u0431\u043e\u0442\u043d\u0438\u043a\u0438 \u0442\u0435\u0430\u0442\u0440\u0430", None))
 
-        self.pushButton_3.setText(QCoreApplication.translate("MainWindow", u"+", None))
-        self.pushButton.setText("")
-        self.pushButton_2.setText("")
+        self.add_prs_btn.setText(QCoreApplication.translate("MainWindow", u"+", None))
+        self.prs_qr_btn.setText("")
+        self.prs_set_btn.setText("")
         self.add_sch_btn.setText("")
         self.sch_qr_btn.setText("")
         self.sch_set_btn.setText("")

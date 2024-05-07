@@ -1,7 +1,6 @@
 import sys
 from PySide6 import QtWidgets
-from sidebar import SideBar
-from login_page import LoginPage
+from pages.login_page import LoginPage
 
 
 def main():

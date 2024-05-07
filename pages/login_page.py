@@ -11,7 +11,7 @@ class LoginPage(QtWidgets.QMainWindow, login_page_ui.Ui_Form):
 
     def open_main_page(self):
         self.close()
-        from main import SideBar
+        from pages.sidebar import SideBar
         self.main_page = SideBar(self.comboBox.currentText())
         self.main_page.show()
 

@@ -6,7 +6,7 @@ from PySide6.QtGui import QStandardItem, QStandardItemModel
 from main_page_ui import Ui_MainWindow
 from PySide6.QtWidgets import QMainWindow
 
-from table_model import TableModel
+from pages.personal_db_page import PersonalDBPage
 
 
 class SideBar(QMainWindow, Ui_MainWindow):
@@ -30,6 +30,7 @@ class SideBar(QMainWindow, Ui_MainWindow):
         self.button6.clicked.connect(self.logout)
         self.btn6.clicked.connect(self.logout)
         self.comboBox.currentTextChanged.connect(self.change_datatable)
+        self.set_personal_page()
 
         if user == 'Режиссер-постановщик':
             self.button1.hide()
@@ -65,6 +66,7 @@ class SideBar(QMainWindow, Ui_MainWindow):
 
     def set_personal_page(self):
         self.stackedWidget.setCurrentIndex(0)
+        self.add_prs_btn.clicked.connect(self.show_prs_page)
 
     def set_schedule_page(self):
         self.stackedWidget.setCurrentIndex(1)
@@ -100,6 +102,10 @@ class SideBar(QMainWindow, Ui_MainWindow):
                 item = QStandardItem(str(data))
                 model.setItem(row_number, column_number, item)
         self.tableView.setModel(model)
+
+    def show_prs_page(self):
+        self.prs_page = PersonalDBPage()
+        self.prs_page.show()
 
     def logout(self):
         from main import LoginPage
