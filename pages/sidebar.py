@@ -1,12 +1,14 @@
 import configparser
 
 import mysql.connector
+from PySide6 import QtWidgets
 from PySide6.QtGui import QStandardItem, QStandardItemModel
 
 from main_page_ui import Ui_MainWindow
 from PySide6.QtWidgets import QMainWindow
 
 from pages.personal_db_page import PersonalDBPage
+from sql_queries import get_actors, get_musicians, get_producers, get_staffs
 
 
 class SideBar(QMainWindow, Ui_MainWindow):
@@ -64,6 +66,8 @@ class SideBar(QMainWindow, Ui_MainWindow):
         )
         self.my_cursor = self.mydb.cursor()
 
+        self.change_datatable()
+
     def set_personal_page(self):
         self.stackedWidget.setCurrentIndex(0)
         self.add_prs_btn.clicked.connect(self.show_prs_page)
@@ -82,26 +86,31 @@ class SideBar(QMainWindow, Ui_MainWindow):
 
     def change_datatable(self):
         model = QStandardItemModel()
-
         selected_item = self.comboBox.currentText()
+        header = []
+
         if selected_item == "Актеры":
-            query = "SELECT * FROM actors"
+            query = get_actors
+            header = ['ID', 'Имя', 'Звание', 'Статус', 'Пол', 'Возраст', 'Тип голоса', 'Рост', 'Директор']
         elif selected_item == "Музыканты":
-            query = "SELECT * FROM musicians"
+            header = ['ID', 'Имя', 'Роль', 'Статус', 'Инструмент', 'Директор']
+            query = get_musicians
         elif selected_item == "Продюсеры":
-            query = "SELECT * FROM producers"
+            header = ['ID', 'Имя', 'Статус', 'Стаж', 'Должность', 'Директор']
+            query = get_producers
         else:
-            query = "SELECT * FROM staffs"
+            header = ['ID', 'Имя', 'Статус', 'Должность', 'Директор']
+            query = get_staffs
 
         self.my_cursor.execute(query)
         result = self.my_cursor.fetchall()
-        header = [desc[0] for desc in self.my_cursor.description]
         model.setHorizontalHeaderLabels(header)
         for row_number, row_data in enumerate(result):
             for column_number, data in enumerate(row_data):
                 item = QStandardItem(str(data))
                 model.setItem(row_number, column_number, item)
         self.tableView.setModel(model)
+        self.tableView.horizontalHeader().setSectionResizeMode(QtWidgets.QHeaderView.ResizeToContents)
 
     def show_prs_page(self):
         self.prs_page = PersonalDBPage()

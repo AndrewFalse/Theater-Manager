@@ -404,6 +404,7 @@ class Ui_MainWindow(object):
         self.tableView.setProperty("showDropIndicator", False)
         self.tableView.setShowGrid(False)
         self.tableView.setCornerButtonEnabled(False)
+        self.tableView.horizontalHeader().setDefaultSectionSize(80)
         self.tableView.verticalHeader().setVisible(False)
         self.tableView.verticalHeader().setHighlightSections(False)
 
