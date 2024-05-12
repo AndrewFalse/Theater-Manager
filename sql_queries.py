@@ -11,7 +11,9 @@ SELECT
     age,
     voice_type,
     height,
-    directors.name
+    directors.name,
+    start_date,
+    salary
 FROM 
     actors
 LEFT JOIN 
@@ -28,7 +30,10 @@ SELECT
         WHEN on_tour = 1 THEN 'В отъезде'
     END AS on_tour_status,
     instruments.name,
-    directors.name
+    directors.name,
+    start_date,
+    age,
+    salary
 FROM 
     musicians
 LEFT JOIN 
@@ -47,7 +52,10 @@ SELECT
     END AS on_tour_status,
     total_played,
     producer_targets.name,
-    directors.name
+    directors.name,
+    start_date,
+    age,
+    salary
 FROM 
     producers
 LEFT JOIN 
@@ -65,7 +73,10 @@ SELECT
         WHEN on_tour = 1 THEN 'В отъезде'
     END AS on_tour_status,
     staff_positions.name,
-    directors.name
+    directors.name,
+    start_date,
+    age,
+    salary
 FROM 
     staffs
 LEFT JOIN 
