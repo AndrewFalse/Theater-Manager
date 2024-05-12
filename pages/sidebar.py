@@ -8,6 +8,7 @@ from main_page_ui import Ui_MainWindow
 from PySide6.QtWidgets import QMainWindow
 
 from pages.personal_db_page import PersonalDBPage
+from pages.staff_info_page import StaffInfoPage
 from sql_queries import get_actors, get_musicians, get_producers, get_staffs
 
 
@@ -32,6 +33,7 @@ class SideBar(QMainWindow, Ui_MainWindow):
         self.button6.clicked.connect(self.logout)
         self.btn6.clicked.connect(self.logout)
         self.comboBox.currentTextChanged.connect(self.change_datatable)
+        self.prs_qr_btn.clicked.connect(self.show_staff_info)
         self.set_personal_page()
 
         if user == 'Режиссер-постановщик':
@@ -91,7 +93,8 @@ class SideBar(QMainWindow, Ui_MainWindow):
 
         if selected_item == "Актеры":
             query = get_actors
-            header = ['ID', 'Имя', 'Звание', 'Статус', 'Пол', 'Возраст', 'Тип голоса', 'Рост', 'Директор', 'Начал работать', 'Зарплата']
+            header = ['ID', 'Имя', 'Звание', 'Статус', 'Пол', 'Возраст', 'Тип голоса', 'Рост', 'Директор',
+                      'Начал работать', 'Зарплата']
         elif selected_item == "Музыканты":
             header = ['ID', 'Имя', 'Роль', 'Статус', 'Инструмент', 'Директор', 'Начал работать', 'Возраст', 'Зарплата']
             query = get_musicians
@@ -122,3 +125,6 @@ class SideBar(QMainWindow, Ui_MainWindow):
         self.login_page.show()
         self.close()
 
+    def show_staff_info(self):
+       self.staff_info_page = StaffInfoPage(self.my_cursor)
+       self.staff_info_page.show()
