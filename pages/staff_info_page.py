@@ -16,7 +16,6 @@ class StaffInfoPage(QtWidgets.QMainWindow, staff_info_page_ui.Ui_MainWindow):
         layout.addWidget(self.create_chart())
 
 
-
     def get_actor_title_count(self):
         self.my_cursor.callproc('get_actor_title_count')
         result = []
@@ -32,9 +31,8 @@ class StaffInfoPage(QtWidgets.QMainWindow, staff_info_page_ui.Ui_MainWindow):
 
         fig, ax = plt.subplots(figsize=(3, 2))
         ax.bar(titles, counts)
-        ax.set_ylabel('Count')
         ax.tick_params(axis='x', rotation=90)
-        ax.set_xticklabels(titles, fontsize=4, rotation=90)
+        ax.set_xticklabels(titles, fontsize=5, rotation=90)
         plt.tight_layout()
 
         canvas = FigureCanvas(fig)
