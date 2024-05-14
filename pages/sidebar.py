@@ -8,7 +8,9 @@ from main_page_ui import Ui_MainWindow
 from PySide6.QtWidgets import QMainWindow
 
 from pages.personal_db_page import PersonalDBPage
+from pages.show_info_page import ShowInfoPage
 from pages.staff_info_page import StaffInfoPage
+from pages.ticket_info_page import TicketInfoPage
 from sql_queries import get_actors, get_musicians, get_producers, get_staffs, get_shows, get_schedule, get_items, \
     get_tickets
 
@@ -35,6 +37,9 @@ class SideBar(QMainWindow, Ui_MainWindow):
         self.btn6.clicked.connect(self.logout)
         self.comboBox.currentTextChanged.connect(self.change_datatable)
         self.prs_qr_btn.clicked.connect(self.show_staff_info)
+        self.add_prs_btn.clicked.connect(self.show_prs_page)
+        self.tck_qr_btn.clicked.connect(self.show_ticket_info)
+        self.show_qr_btn.clicked.connect(self.show_show_info)
 
         if user == 'Режиссер-постановщик':
             self.button1.hide()
@@ -74,7 +79,6 @@ class SideBar(QMainWindow, Ui_MainWindow):
     def set_personal_page(self):
         self.stackedWidget.setCurrentIndex(0)
         self.change_datatable()
-        self.add_prs_btn.clicked.connect(self.show_prs_page)
 
     def set_schedule_page(self):
         self.stackedWidget.setCurrentIndex(1)
@@ -198,3 +202,11 @@ class SideBar(QMainWindow, Ui_MainWindow):
     def show_staff_info(self):
         self.staff_info_page = StaffInfoPage(self.my_cursor)
         self.staff_info_page.show()
+
+    def show_ticket_info(self):
+        self.ticket_info_page = TicketInfoPage(self.my_cursor)
+        self.ticket_info_page.show()
+
+    def show_show_info(self):
+        self.show_info_page = ShowInfoPage(self.my_cursor)
+        self.show_info_page.show()
