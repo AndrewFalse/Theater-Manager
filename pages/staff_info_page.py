@@ -15,6 +15,10 @@ class StaffInfoPage(QtWidgets.QMainWindow, staff_info_page_ui.Ui_MainWindow):
         layout.setContentsMargins(20, 20, 20, 20)
         layout.addWidget(self.create_chart())
 
+        layout2 = QVBoxLayout(self.widget2)
+        layout2.setContentsMargins(20, 20, 20, 20)
+        layout2.addWidget(self.create_ring_chart())
+
         layout3 = QVBoxLayout(self.widget3)
         layout3.setContentsMargins(20, 20, 20, 20)
         layout3.addWidget(self.create_tour_pie())
@@ -72,4 +76,26 @@ class StaffInfoPage(QtWidgets.QMainWindow, staff_info_page_ui.Ui_MainWindow):
         ax.set_title('Distribution of Ages')
 
         canvas = FigureCanvas(fig)
+        return canvas
+
+    def create_ring_chart(self):
+        data = self.get_sql_query('count_experience_years')
+        titles = [title for title, _ in data]
+        counts = [count for _, count in data]
+
+        fig, ax = plt.subplots(figsize=(6, 6))
+        wedges, texts, autotexts = ax.pie(counts, labels=titles, autopct='%1.1f%%', startangle=90,
+                                          wedgeprops=dict(width=0.4, edgecolor='w'))
+
+        plt.setp(autotexts, size=8, weight="bold")
+        ax.axis('equal')
+
+        # Добавляем белый круг в центр для создания эффекта donut chart
+        centre_circle = plt.Circle((0, 0), 0.2, color='white', linewidth=0)
+        ax.add_artist(centre_circle)
+
+        plt.tight_layout()
+
+        canvas = FigureCanvas(fig)
+
         return canvas
