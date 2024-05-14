@@ -84,3 +84,40 @@ LEFT JOIN
 LEFT JOIN 
     directors ON staffs.director_id = directors.id
 """
+
+get_shows = """SELECT 
+    p.id,
+    p.title AS performance_title,
+    a.name AS author_name,
+    g.name AS genre_name
+FROM 
+    perfomances p
+JOIN 
+    authors a ON p.author_id = a.id
+JOIN 
+    genres g ON p.genre_id = g.id;
+ORDER BY
+    p.id;
+"""
+
+get_schedule = """SELECT 
+    p.id,
+    p.title AS performance_title,
+    p.date AS performance_date,
+    a.name AS author_name,
+    g.name AS genre_name,
+    pr.name AS producer_name,
+    p.total_seats AS total_seats_count
+FROM 
+    perfomances p
+JOIN 
+    authors a ON p.author_id = a.id
+JOIN 
+    genres g ON p.genre_id = g.id
+JOIN
+    producers pr ON p.producer_id = pr.id
+GROUP BY
+    p.id, p.title, p.date, a.name, g.name, pr.name, p.total_seats
+ORDER BY
+    p.date;
+"""

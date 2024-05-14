@@ -71,9 +71,8 @@ class StaffInfoPage(QtWidgets.QMainWindow, staff_info_page_ui.Ui_MainWindow):
 
         fig, ax = plt.subplots()
         ax.bar(ages, counts)
-        ax.set_xlabel('Age')
-        ax.set_ylabel('Count')
-        ax.set_title('Distribution of Ages')
+        ax.set_xlabel('Возраст')
+        ax.set_ylabel('Колв-о')
 
         canvas = FigureCanvas(fig)
         return canvas
@@ -90,7 +89,6 @@ class StaffInfoPage(QtWidgets.QMainWindow, staff_info_page_ui.Ui_MainWindow):
         plt.setp(autotexts, size=8, weight="bold")
         ax.axis('equal')
 
-        # Добавляем белый круг в центр для создания эффекта donut chart
         centre_circle = plt.Circle((0, 0), 0.2, color='white', linewidth=0)
         ax.add_artist(centre_circle)
 

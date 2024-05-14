@@ -404,7 +404,7 @@ class Ui_MainWindow(object):
         self.tableView.setProperty("showDropIndicator", False)
         self.tableView.setShowGrid(False)
         self.tableView.setCornerButtonEnabled(False)
-        self.tableView.horizontalHeader().setDefaultSectionSize(80)
+        self.tableView.horizontalHeader().setDefaultSectionSize(100)
         self.tableView.verticalHeader().setVisible(False)
         self.tableView.verticalHeader().setHighlightSections(False)
 
@@ -695,14 +695,6 @@ class Ui_MainWindow(object):
         self.verticalLayout_11.setObjectName(u"verticalLayout_11")
         self.horizontalLayout_8 = QHBoxLayout()
         self.horizontalLayout_8.setObjectName(u"horizontalLayout_8")
-        self.show_cmbox = QComboBox(self.shows_page)
-        self.show_cmbox.addItem("")
-        self.show_cmbox.addItem("")
-        self.show_cmbox.setObjectName(u"show_cmbox")
-        self.show_cmbox.setMinimumSize(QSize(115, 30))
-
-        self.horizontalLayout_8.addWidget(self.show_cmbox)
-
         self.horizontalSpacer_5 = QSpacerItem(58, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
         self.horizontalLayout_8.addItem(self.horizontalSpacer_5)
@@ -765,7 +757,7 @@ class Ui_MainWindow(object):
         self.button4.toggled.connect(self.btn4.setChecked)
         self.button5.toggled.connect(self.btn5.setChecked)
 
-        self.stackedWidget.setCurrentIndex(0)
+        self.stackedWidget.setCurrentIndex(4)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -806,9 +798,6 @@ class Ui_MainWindow(object):
         self.add_tck_btn.setText(QCoreApplication.translate("MainWindow", u"+", None))
         self.tck_qr_btn.setText("")
         self.tck_set_btn.setText("")
-        self.show_cmbox.setItemText(0, QCoreApplication.translate("MainWindow", u"\u041f\u043e \u0440\u043e\u043b\u044f\u043c", None))
-        self.show_cmbox.setItemText(1, QCoreApplication.translate("MainWindow", u"\u041f\u043e \u0441\u043f\u0435\u043a\u0442\u0430\u043a\u043b\u044f\u043c", None))
-
         self.add_role_btn.setText("")
         self.show_qr_btn.setText("")
         self.show_set_btn.setText("")

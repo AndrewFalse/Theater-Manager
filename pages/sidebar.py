@@ -9,7 +9,7 @@ from PySide6.QtWidgets import QMainWindow
 
 from pages.personal_db_page import PersonalDBPage
 from pages.staff_info_page import StaffInfoPage
-from sql_queries import get_actors, get_musicians, get_producers, get_staffs
+from sql_queries import get_actors, get_musicians, get_producers, get_staffs, get_shows, get_schedule
 
 
 class SideBar(QMainWindow, Ui_MainWindow):
@@ -34,7 +34,6 @@ class SideBar(QMainWindow, Ui_MainWindow):
         self.btn6.clicked.connect(self.logout)
         self.comboBox.currentTextChanged.connect(self.change_datatable)
         self.prs_qr_btn.clicked.connect(self.show_staff_info)
-        self.set_personal_page()
 
         if user == 'Режиссер-постановщик':
             self.button1.hide()
@@ -69,13 +68,16 @@ class SideBar(QMainWindow, Ui_MainWindow):
         self.my_cursor = self.mydb.cursor()
 
         self.change_datatable()
+        self.set_personal_page()
 
     def set_personal_page(self):
         self.stackedWidget.setCurrentIndex(0)
+        self.change_datatable()
         self.add_prs_btn.clicked.connect(self.show_prs_page)
 
     def set_schedule_page(self):
         self.stackedWidget.setCurrentIndex(1)
+        self.set_schedule_table()
 
     def set_items_page(self):
         self.stackedWidget.setCurrentIndex(2)
@@ -85,6 +87,39 @@ class SideBar(QMainWindow, Ui_MainWindow):
 
     def set_shows_page(self):
         self.stackedWidget.setCurrentIndex(4)
+        self.set_performance_table()
+
+    def set_performance_table(self):
+        model = QStandardItemModel()
+
+        query = get_shows
+        header = ['ID', 'Название', 'Автор', 'Жанр']
+
+        self.my_cursor.execute(query)
+        result = self.my_cursor.fetchall()
+        model.setHorizontalHeaderLabels(header)
+        for row_number, row_data in enumerate(result):
+            for column_number, data in enumerate(row_data):
+                item = QStandardItem(str(data))
+                model.setItem(row_number, column_number, item)
+        self.show_table.setModel(model)
+        self.show_table.horizontalHeader().setSectionResizeMode(QtWidgets.QHeaderView.ResizeToContents)
+
+    def set_schedule_table(self):
+        model = QStandardItemModel()
+
+        query = get_schedule
+        header = ['ID', 'Название', 'Дата', 'Автор', 'Жанр', 'Продюсер', 'Кол-во мест']
+
+        self.my_cursor.execute(query)
+        result = self.my_cursor.fetchall()
+        model.setHorizontalHeaderLabels(header)
+        for row_number, row_data in enumerate(result):
+            for column_number, data in enumerate(row_data):
+                item = QStandardItem(str(data))
+                model.setItem(row_number, column_number, item)
+        self.sch_table.setModel(model)
+        self.sch_table.horizontalHeader().setSectionResizeMode(QtWidgets.QHeaderView.ResizeToContents)
 
     def change_datatable(self):
         model = QStandardItemModel()
@@ -126,5 +161,5 @@ class SideBar(QMainWindow, Ui_MainWindow):
         self.close()
 
     def show_staff_info(self):
-       self.staff_info_page = StaffInfoPage(self.my_cursor)
-       self.staff_info_page.show()
+        self.staff_info_page = StaffInfoPage(self.my_cursor)
+        self.staff_info_page.show()
