@@ -100,6 +100,25 @@ ORDER BY
     p.id;
 """
 
+get_items = """SELECT 
+    i.name AS item_title,
+    p.title AS performance_name
+FROM 
+    items i
+JOIN 
+    perfomances p ON i.perfomance_id = p.id
+"""
+
+get_tickets = """SELECT
+    p.title AS p_title,
+    t.price AS ticket_price,
+    t.seat AS ticket_seat
+FROM 
+    tickets t
+JOIN 
+    perfomances p ON t.perfomance_id = p.id
+"""
+
 get_schedule = """SELECT 
     p.id,
     p.title AS performance_title,

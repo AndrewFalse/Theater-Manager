@@ -9,7 +9,8 @@ from PySide6.QtWidgets import QMainWindow
 
 from pages.personal_db_page import PersonalDBPage
 from pages.staff_info_page import StaffInfoPage
-from sql_queries import get_actors, get_musicians, get_producers, get_staffs, get_shows, get_schedule
+from sql_queries import get_actors, get_musicians, get_producers, get_staffs, get_shows, get_schedule, get_items, \
+    get_tickets
 
 
 class SideBar(QMainWindow, Ui_MainWindow):
@@ -81,9 +82,11 @@ class SideBar(QMainWindow, Ui_MainWindow):
 
     def set_items_page(self):
         self.stackedWidget.setCurrentIndex(2)
+        self.set_item_table()
 
     def set_cash_page(self):
         self.stackedWidget.setCurrentIndex(3)
+        self.set_tickets_table()
 
     def set_shows_page(self):
         self.stackedWidget.setCurrentIndex(4)
@@ -104,6 +107,38 @@ class SideBar(QMainWindow, Ui_MainWindow):
                 model.setItem(row_number, column_number, item)
         self.show_table.setModel(model)
         self.show_table.horizontalHeader().setSectionResizeMode(QtWidgets.QHeaderView.ResizeToContents)
+
+    def set_tickets_table(self):
+        model = QStandardItemModel()
+
+        query = get_tickets
+        header = ['Спектакль', 'Цена', 'Место']
+
+        self.my_cursor.execute(query)
+        result = self.my_cursor.fetchall()
+        model.setHorizontalHeaderLabels(header)
+        for row_number, row_data in enumerate(result):
+            for column_number, data in enumerate(row_data):
+                item = QStandardItem(str(data))
+                model.setItem(row_number, column_number, item)
+        self.tck_table.setModel(model)
+        self.tck_table.horizontalHeader().setSectionResizeMode(QtWidgets.QHeaderView.ResizeToContents)
+
+    def set_item_table(self):
+        model = QStandardItemModel()
+
+        query = get_items
+        header = ['Название', 'Спектакль']
+
+        self.my_cursor.execute(query)
+        result = self.my_cursor.fetchall()
+        model.setHorizontalHeaderLabels(header)
+        for row_number, row_data in enumerate(result):
+            for column_number, data in enumerate(row_data):
+                item = QStandardItem(str(data))
+                model.setItem(row_number, column_number, item)
+        self.item_table.setModel(model)
+        self.item_table.horizontalHeader().setSectionResizeMode(QtWidgets.QHeaderView.ResizeToContents)
 
     def set_schedule_table(self):
         model = QStandardItemModel()
